@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Vue.js起步</title>
+		<!-- 通过CDN引入Vue.js -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style type="text/css">
+			#show:{
+				color: red;}
+		</style>
+	</head>
+	<body>
+		<!-- vue-app的根容器 -->
+		<div id="app">
+			<span id="show">
+				{{name}}
+				
+			</span>
+			
+		</div>
+		<script type="text/javascript">
+			// 实例化一个Vue对象
+			var app=new Vue({
+				el:'#app',
+				data:{
+					name:'软件1721'
+				}
+			})
+		</script>
+		
+	</body>
+</html>
