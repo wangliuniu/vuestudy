@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>V-on起步</title>
+		<!-- 通过CDN引入Vue.js -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<!--vue-app的根容器-->
+		<div id="app">
+			<button type="button" v-on:click="handleClick">点我</button>
+		</div>
+		<script type="text/javascript">
+			// 实例化一个VUE对象
+			var app = new Vue({
+				el: '#app',
+				data:{
+					
+					name:'软件1721',
+				},
+				methods:{
+					handleClick:function(){
+						alert(this.name);
+						
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

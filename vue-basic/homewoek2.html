@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Vue.js条件和循环的综合练习</title>
+		<!-- 通过CDN引入Vue.js -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style type="text/css">
+			.containner {
+				width: 280px;
+				height: 415px;
+				margin-right: 30px;
+				border: 1px solid #EEE;
+				border-radius: 10px;
+				margin: 0 auto;
+				padding-top: 10px;
+
+			}
+
+			.card2 {
+				text-align: left;
+				margin-top: 10px;
+				margin-left: 10px;
+				margin-right: 10px;
+				font-size: 14px;
+				line-height: 25px;
+
+			}
+
+			.touxiang {
+				width: 50px;
+				height: 50px;
+				float:left;
+				border-radius: 50px;
+			}
+
+			.like {
+				color: darkgray;
+				float:right;
+			}
+			
+			.no {
+				color: #ADFF2F;
+				float: right;
+			}
+			
+			.word {
+				font-size: 13px;
+				color: darkgray;
+			}
+			
+			.check{
+				width: 260px;
+				height: 35px;
+				margin-left: 10px;
+				background-color: #EEEEEE;
+				border:1px solid #A9A9A9 ;
+				color: #A9A9A9;
+				}
+				
+			.title {
+				margin-left: 10px;	
+				color: #A9A9A9;
+				}
+				
+				.title2 {
+					float: right;
+					margin-right: 10px;
+					color: #A9A9A9;
+				}
+
+		</style>
+	</head>
+	<body>
+		<!-- vue-app的根容器 -->
+		<div id="app">
+			
+			<div class="containner">
+				<span class="title" >推荐作者</span><span class="title2" >换一批</span>
+				<!-- 通过循环遍历books数组 -->
+				<div class="card" v-for="book in books">
+					<div class="card2">
+						<img class="touxiang" :src="book.cover">
+						<span >{{book.name}}</span>
+						<span class="like" v-if="book.like">√ 已关注</span>
+						<span class="no" v-else >＋关注</span><br />
+						<span class="word" >{{book.words}}</span>
+
+
+					</div>
+
+				</div>
+				<input type="button" class="check" value="查看全部 >" />
+
+			</div>
+
+		</div>
+		<script type="text/javascript">
+			// 实例化一个Vue对象
+			var app = new Vue({
+				el: '#app',
+
+				data: {
+					books: [{
+							name: '胡七筒',
+							words: '写了325K字·11k喜欢',
+							cover: 'img/01.jpg',
+							like: true
+						},
+						{
+							name: '往波_偶遇科学',
+							words: '写了302.1K字·1.9k喜欢',
+							cover: 'img/02.jpg',
+							like: false
+						},
+						{
+							name: '梅拾璎',
+							words: '写了269.3K字·23.4k喜欢',
+							cover: 'img/03.jpg',
+							like: true
+						},
+						{
+							name: '徐林Grace',
+							words: '写了677.9K字·5.5k喜欢',
+							cover: 'img/04.jpg',
+							like: false
+						},
+						{
+							name: '行距版君',
+							words: '写了535.1K字·51.8k喜欢',
+							cover: 'img/05.jpg',
+							like: false
+						}
+
+
+					],
+				}
+
+			})
+		</script>
+
+	</body>
+</html>

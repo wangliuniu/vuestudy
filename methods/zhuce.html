@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Vue.js起步</title>
+		<!-- 通过CDN引入Vue.js -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+		<style type="text/css">
+			body {
+				width: 100%;
+				background-image: url(img/back.jpg);
+				background-repeat: no-repeat;
+				background-size: 100%,100%;
+			}
+			#app {
+				width: 300px;
+				height: 350px;
+				margin-left: 1100px;
+				margin-top: 160px;
+				border: 1px solid darkgray;
+				border-radius: 9px;
+				color: dimgrey;
+			}
+			
+			.card {
+				margin-left: 32px;
+				margin-top: 17px;
+			}
+
+
+			.kuang {
+				width: 100px;
+				height: 25px;
+				outline: none;
+				border-radius: 4px;
+				margin-top: 10px;
+				border: 1px solid darkgray;
+				text-indent: 10px;
+			}
+			
+			.kuang2 {
+				width: 60px;
+				height: 28px;
+				margin-top: 10px;
+				outline: none;
+				border: 1px solid darkgray;
+				border-radius: 4px;
+			}
+			
+			.kuang3 {
+				width: 230px;
+				height: 40px;
+				outline: none;
+				border: 1px solid darkgray;
+				border-radius: 4px;
+				margin-top: 10px;
+			}
+			
+			
+			.c:hover {
+				border-color: #549df8;
+			}
+
+			.link {
+				cursor: pointer;
+			}
+
+			.btn {
+				width: 100px;
+				height: 30px;
+				margin-top: 15px;
+				outline: none;
+				border: 1px solid #dcd1bd;
+				border-radius: 4px;
+				color:#fff;
+				background-color:#ded3c0;
+			}
+			
+			.btn:hover {
+				background-color:#af936f;
+			}
+			
+			.gbtn {
+				float: right;
+				margin-right: 32px;
+			}
+			p {
+				margin-left: 30px;
+				margin-top: 20px;
+				font-size: 20px;
+			}
+			
+			h2 {
+				padding-left: 70px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- vue-app的根容器 -->
+		<div id="app">
+			<div class="card card1" v-show="see">
+				姓名 <input class="kuang c" v-model="message1">
+
+				性别 <select class="kuang2 c link" v-model="selected1" name="male">
+					<option value="女">女</option>
+					<option value="男">男</option>
+
+				</select><br />
+				年龄 <input class="kuang c" v-model="message2">
+				血型 <select class="kuang2 c link" v-model="selected2" name="blood">
+					<option value="A型">A型</option>
+					<option value="B型">B型</option>
+					<option value="AB型">AB型</option>
+					<option value="O型">O型</option>
+					<option value="其他血型">其他血型</option>
+				</select><br/>
+				<br/>
+				个性签名<br/>
+				<textarea class="kuang3 c" v-model="message3"></textarea><br/>
+				<br/>
+				个人说明<br/>
+				<textarea class="kuang3 c" v-model="message4"></textarea><br />
+
+				<button type="button" class="btn link" v-on:click="handleClick"><i class="icon-twitter" @click="handleClick"></i>保存</button>
+				<button type="button" class="gbtn btn link"><i class="icon-twitter"></i>关闭</button>
+			</div>
+			<div class="card card2" v-show="see===false">
+				<h2>注册信息</h2>
+				<p>姓名：{{message1}}</p>
+				<p>性别：{{selected1}}</p>
+				<p>年龄：{{message2}}</p>
+				<p>血型：{{selected2}}</p>
+				<p>个性签名：{{message3}}</p>
+				<p>个人说明：{{message4}}</p>
+			</div>
+		</div>
+
+
+		<script type="text/javascript">
+			// 实例化一个Vue对象
+			var app = new Vue({
+				el: '#app',
+				data: {
+					message1: '',
+					selected1: '',
+					message2: '',
+					selected2: '',
+					message3: '',
+					message4: '',
+					name: '资料保存成功~',
+					see: true
+
+				},
+				methods: {
+					handleClick: function() {
+						this.see = !this.see;
+
+					}
+				}
+			})
+		</script>
+
+	</body>
+</html>

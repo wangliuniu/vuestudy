@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Vue.js v-on指令练习5</title>
+			<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+		<style type="text/css">
+			.followed{
+				color:orangered;
+			}
+			.cancle-followed{
+				color: orangered;
+			}
+			.link{
+				cursor:pointer;
+			}
+			.btn{
+				width:100px;
+				height:35px;
+				/* 按钮颜色 */
+				color:rgb(234,111,90);
+				/* 按钮圆矩形边框 */
+				border-radius: 20px;
+				font-size: 14px;
+				background-color: #FFF;
+				/* 按钮边框线及颜色 */
+				border:1px solid rgb(234,111,90);
+				outline:none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<br>
+			<button type="button" class="btn" v-show="followed" @click="handleFollow"><i class="icon-heart-empty"></i>喜欢{{fuhao}}{{num}}</button>
+			<button type="button" class="btn" v-show="followed===false" @click="handleFollow"><i class="icon-heart"></i>喜欢{{fuhao}}{{num}}</button>
+			
+		</div>
+		<script type="text/javascript">
+			var app=new Vue({
+				el:'#app',
+				data:{
+					followed:true,
+					fuhao:'   |   ',
+					num:10
+					
+				},
+				methods:{
+					handleFollow:function(){
+						this.followed=!this.followed;
+						if(this.followed===true){
+							this.num -=1;
+						}else{
+							this.num +=1;
+						}
+					}
+							
+							
+							
+						}
+				
+				
+				
+			})
+		</script>
+		
+		
+		
+		
+	</body>
+</html>
